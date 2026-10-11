@@ -1,0 +1,5 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="@dimen/screen_margin" android:gravity="center" android:orientation="vertical">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/app_name" android:textSize="@dimen/brand_size" android:textStyle="bold" android:textColor="@color/brand" android:gravity="center" />
+    <TextView android:id="@+id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/size_24" android:text="@string/auth_title" android:textSize="@dimen/title_size" android:textColor="@color/text_primary" android:gravity="center" />
+    <TextView android:id="@+id/description" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/size_16" android:text="@string/auth_description" android:textSize="@dimen/body_size" android:textColor="@color/text_secondary" android:gravity="center" />
+</LinearLayout>

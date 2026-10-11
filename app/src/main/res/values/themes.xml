@@ -1,0 +1,28 @@
+<resources>
+    <style name="Base.Theme.DriveNext" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorOnPrimary">@color/background</item>
+        <item name="android:fontFamily">@font/montserrat_family</item>
+        <item name="fontFamily">@font/montserrat_family</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="materialButtonStyle">@style/Widget.DriveNext.Button</item>
+    </style>
+    <style name="Theme.DriveNext" parent="Base.Theme.DriveNext" />
+    <style name="Theme.DriveNext.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_art</item>
+        <item name="postSplashScreenTheme">@style/Theme.DriveNext</item>
+    </style>
+    <style name="Widget.DriveNext.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/button_size</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+</resources>
+

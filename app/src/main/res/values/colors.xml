@@ -1,0 +1,7 @@
+<resources>
+    <color name="brand">#291747</color>
+    <color name="background">#FFFFFF</color>
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#555555</color>
+    <color name="indicator_inactive">#E3E5EA</color>
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">DriveNext</string>
+    <string name="slogan">Поможем найти твою следующую поездку</string>
+    <string name="no_connection_title">Нет подключения\nк интернету</string>
+    <string name="no_connection_description">Проверьте подключение и повторите\nпопытку</string>
+    <string name="retry">Повторить попытку</string>
+    <string name="skip">Пропустить</string>
+    <string name="next">Далее</string>
+    <string name="go">Поехали</string>
+    <string name="rental_title">Аренда автомобилей</string>
+    <string name="rental_description">Открой для себя удобный и доступный способ передвижения</string>
+    <string name="safe_title">Безопасно и удобно</string>
+    <string name="safe_description">Арендуй автомобиль и наслаждайся его удобством</string>
+    <string name="offers_title">Лучшие предложения</string>
+    <string name="offers_description">Выбирай понравившееся среди сотен доступных автомобилей</string>
+    <string name="slide_position">Слайд %1$d из %2$d</string>
+    <string name="auth_title">Вход / регистрация</string>
+    <string name="auth_description">Войдите в аккаунт, чтобы найти свою следующую поездку.</string>
+    <string name="home_title">Главная</string>
+    <string name="home_description">Поможем найти твою следующую поездку</string>
+    <string name="storage_error">Не удалось сохранить прохождение приветствия. Повторите попытку.</string>
+    <string name="error_title">Ошибка</string>
+    <string name="ok">Понятно</string>
+</resources>

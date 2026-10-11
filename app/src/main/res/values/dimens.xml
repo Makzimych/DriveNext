@@ -1,0 +1,24 @@
+<resources>
+    <dimen name="screen_margin">24dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="body_size">14sp</dimen>
+    <dimen name="brand_size">28sp</dimen>
+    <dimen name="button_size">14sp</dimen>
+    <dimen name="button_radius">12dp</dimen>
+    <dimen name="content_max_width">520dp</dimen>
+    <dimen name="size_6">6dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_32">32dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_48">48dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_72">72dp</dimen>
+    <dimen name="size_96">96dp</dimen>
+    <dimen name="size_128">128dp</dimen>
+    <dimen name="size_160">160dp</dimen>
+    <dimen name="size_320">320dp</dimen>
+    <dimen name="onboarding_art_height">64dp</dimen>
+</resources>
