@@ -27,6 +27,7 @@ class StartupViewModel(private val interactor: StartupInteractor, private val sa
 
     fun checkConnection() {
         if (!ready) return
+        destination = interactor.destination()
         mutableScreen.value = if (!interactor.hasInternet()) Screen.NO_CONNECTION else when (destination) {
             Destination.ONBOARDING -> Screen.ONBOARDING
             Destination.AUTH -> Screen.AUTH

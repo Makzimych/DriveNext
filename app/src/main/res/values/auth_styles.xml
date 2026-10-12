@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="auth_choice_top">50dp</dimen>
+    <style name="AuthOutlinedButton" parent="Widget.Material3.Button.OutlinedButton"><item name="cornerRadius">@dimen/button_radius</item><item name="android:textAllCaps">false</item><item name="android:insetTop">0dp</item><item name="android:insetBottom">0dp</item></style>
+    <dimen name="auth_padding">24dp</dimen><dimen name="auth_gap">16dp</dimen><dimen name="auth_small_gap">8dp</dimen>
+    <dimen name="auth_button_height">52dp</dimen><dimen name="auth_title_size">22sp</dimen><dimen name="auth_body_size">14sp</dimen>
+    <dimen name="auth_art_height">240dp</dimen><dimen name="auth_avatar_size">100dp</dimen><dimen name="auth_icon_size">48dp</dimen>
+    <style name="AuthInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item><item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/auth_gap</item><item name="expandedHintEnabled">false</item><item name="boxBackgroundColor">@color/background</item>
+    </style>
+    <style name="AuthHeading"><item name="android:textSize">@dimen/auth_title_size</item><item name="android:textColor">@color/text_primary</item><item name="android:textStyle">bold</item><item name="android:gravity">center</item></style>
+    <style name="AuthText"><item name="android:textSize">@dimen/auth_body_size</item><item name="android:textColor">@color/text_secondary</item></style>
+</resources>

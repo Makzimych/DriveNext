@@ -9,7 +9,6 @@ interface StartupRepository {
     fun observeNetwork(onChanged: () -> Unit): () -> Unit
 }
 
-// Supabase authentication is introduced in LR2; no fabricated session in LR1.
 interface SessionRepository { fun hasValidSession(): Boolean }
 
 class StartupInteractor(private val repository: StartupRepository, private val sessions: SessionRepository) {

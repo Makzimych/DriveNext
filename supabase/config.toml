@@ -1,0 +1,3 @@
+[functions.yandex-userinfo]
+# Incoming bearer is a Yandex token, not a Supabase JWT.
+verify_jwt = false

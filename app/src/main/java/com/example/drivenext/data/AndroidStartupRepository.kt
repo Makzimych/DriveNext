@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import com.example.drivenext.domain.StartupRepository
-import com.example.drivenext.domain.SessionRepository
 
 class AndroidStartupRepository(context: Context) : StartupRepository {
     private val connectivity = context.getSystemService(ConnectivityManager::class.java)
@@ -30,8 +29,4 @@ class AndroidStartupRepository(context: Context) : StartupRepository {
         connectivity.registerDefaultNetworkCallback(callback)
         return { connectivity.unregisterNetworkCallback(callback) }
     }
-}
-
-class UnauthenticatedSessionRepository : SessionRepository {
-    override fun hasValidSession() = false
 }

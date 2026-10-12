@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background" android:orientation="vertical" android:padding="@dimen/auth_padding">
+    <LinearLayout android:id="@+id/header" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton android:id="@+id/back" style="@style/Widget.Material3.Button.TextButton" android:layout_width="wrap_content" android:layout_height="@dimen/auth_icon_size" android:text="@string/auth_back" />
+        <TextView android:id="@+id/title" style="@style/AuthHeading" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/auth_create"/>
+    </LinearLayout>
+    <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true" android:visibility="gone" android:contentDescription="@string/auth_loading"/>
+    <TextView android:id="@+id/error" style="@style/AuthText" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:visibility="gone"/>
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <include android:id="@+id/choice" layout="@layout/auth_choice"/><include android:id="@+id/login" layout="@layout/auth_login" android:visibility="gone"/>
+            <include android:id="@+id/account" layout="@layout/auth_account" android:visibility="gone"/><include android:id="@+id/person" layout="@layout/auth_person" android:visibility="gone"/>
+            <include android:id="@+id/documents" layout="@layout/auth_documents" android:visibility="gone"/><include android:id="@+id/success" layout="@layout/auth_success" android:visibility="gone"/>
+            <include android:id="@+id/home" layout="@layout/auth_home" android:visibility="gone"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
