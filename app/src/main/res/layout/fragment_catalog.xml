@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/background" android:padding="16dp">
+  <com.google.android.material.button.MaterialButton android:id="@+id/catalogBack" style="@style/AuthOutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/lr3_catalogback_text" />
+  <TextView android:id="@+id/catalogTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/lr3_catalogtitle_text" android:textSize="26sp" android:textColor="@color/text_primary" android:padding="8dp" android:textStyle="bold" />
+  <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+    <LinearLayout android:id="@+id/catalogList" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+      <androidx.appcompat.widget.SearchView android:id="@+id/catalogSearch" android:layout_width="match_parent" android:layout_height="wrap_content" app:iconifiedByDefault="false" app:queryHint="Марка или модель" />
+      <ProgressBar android:id="@+id/catalogProgress" android:layout_width="match_parent" android:layout_height="48dp" android:visibility="gone" />
+      <TextView android:id="@+id/catalogError" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="14sp" android:textColor="@color/text_primary" android:padding="8dp" />
+      <com.google.android.material.button.MaterialButton android:id="@+id/catalogRetry" style="@style/AuthOutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/lr3_catalogretry_text" />
+      <TextView android:id="@+id/catalogEmpty" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/lr3_catalogempty_text" android:textSize="16sp" android:textColor="@color/text_primary" android:padding="8dp" />
+      <androidx.recyclerview.widget.RecyclerView android:id="@+id/carsList" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/settingsPanel" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+      <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+          <com.google.android.material.card.MaterialCardView android:id="@+id/profileCard" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardCornerRadius="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+              <ImageView android:id="@+id/settingsAvatar" android:layout_width="64dp" android:layout_height="64dp" android:layout_gravity="center_horizontal" android:src="@drawable/auth_avatar" android:scaleType="centerCrop" android:contentDescription="@string/lr3_settingsavatar_contentdescription" />
+              <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:id="@+id/settingsName" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/lr3_settingsname_text" android:textSize="20sp" android:textColor="@color/text_primary" android:padding="8dp" />
+                <TextView android:id="@+id/settingsEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="14sp" android:textColor="@color/text_primary" android:padding="8dp" />
+              </LinearLayout>
+            </LinearLayout>
+          </com.google.android.material.card.MaterialCardView>
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsBookings" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingsbookings_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsTheme" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingstheme_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsNotifications" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingsnotifications_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsAddCar" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingsaddcar_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsHelp" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingshelp_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+          <com.google.android.material.button.MaterialButton android:id="@+id/settingsInvite" style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60dp" android:text="@string/lr3_settingsinvite_text" android:gravity="start|center_vertical" android:textColor="@color/brand" />
+        </LinearLayout>
+      </ScrollView>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/profilePanel" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+      <ImageView android:id="@+id/profileAvatar" android:layout_width="96dp" android:layout_height="96dp" android:layout_gravity="center_horizontal" android:src="@drawable/auth_avatar" android:scaleType="centerCrop" android:contentDescription="@string/lr3_profileavatar_contentdescription" />
+      <TextView android:id="@+id/profileName" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/lr3_profilename_text" android:textSize="22sp" android:textColor="@color/text_primary" android:padding="8dp" />
+      <TextView android:id="@+id/profileEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="16sp" android:textColor="@color/text_primary" android:padding="8dp" />
+      <com.google.android.material.button.MaterialButton android:id="@+id/changeAvatar" style="@style/AuthOutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/lr3_changeavatar_text" />
+      <com.google.android.material.button.MaterialButton android:id="@+id/profileLogout" style="@style/AuthOutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/lr3_profilelogout_text" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/destinationPanel" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+      <TextView android:id="@+id/destinationText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="18sp" android:textColor="@color/text_primary" android:padding="8dp" />
+    </LinearLayout>
+  </FrameLayout>
+  <ProgressBar android:id="@+id/profileProgress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:visibility="gone" />
+  <TextView android:id="@+id/profileError" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="14sp" android:textColor="@color/text_primary" android:padding="8dp" />
+  <com.google.android.material.button.MaterialButton android:id="@+id/profileRetry" style="@style/AuthOutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/lr3_profileretry_text" />
+  <com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/catalogNavigation" android:layout_width="match_parent" android:layout_height="wrap_content" app:menu="@menu/catalog_navigation" app:labelVisibilityMode="labeled" />
+</LinearLayout>

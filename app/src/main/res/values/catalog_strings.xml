@@ -1,0 +1,24 @@
+<resources>
+  <string name="lr3_catalogback_text">Назад</string>
+  <string name="lr3_catalogtitle_text">Главная</string>
+  <string name="lr3_catalogretry_text">Повторить попытку</string>
+  <string name="lr3_catalogempty_text">Автомобили не найдены</string>
+  <string name="lr3_settingsavatar_contentdescription">Аватар пользователя</string>
+  <string name="lr3_settingsname_text">Профиль</string>
+  <string name="lr3_settingsbookings_text">Мои бронирования</string>
+  <string name="lr3_settingstheme_text">Тема</string>
+  <string name="lr3_settingsnotifications_text">Уведомления</string>
+  <string name="lr3_settingsaddcar_text">Подключить свой автомобиль</string>
+  <string name="lr3_settingshelp_text">Помощь</string>
+  <string name="lr3_settingsinvite_text">Пригласи друга</string>
+  <string name="lr3_profileavatar_contentdescription">Аватар пользователя</string>
+  <string name="lr3_profilename_text">Профиль</string>
+  <string name="lr3_changeavatar_text">Изменить фото</string>
+  <string name="lr3_profilelogout_text">Выйти из профиля</string>
+  <string name="lr3_profileretry_text">Повторить загрузку профиля</string>
+  <string name="lr3_tabhome_text">Главная</string>
+  <string name="lr3_tabbookings_text">Брони</string>
+  <string name="lr3_tabsettings_text">Настройки</string>
+  <string name="lr3_cardetails_text">Детали</string>
+  <string name="lr3_carrent_text">Забронировать</string>
+</resources>

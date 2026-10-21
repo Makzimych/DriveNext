@@ -5,7 +5,8 @@
     </LinearLayout>
     <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true" android:visibility="gone" android:contentDescription="@string/auth_loading"/>
     <TextView android:id="@+id/error" style="@style/AuthText" android:layout_width="match_parent" android:layout_height="wrap_content" android:accessibilityLiveRegion="polite" android:visibility="gone"/>
-    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+    <FrameLayout android:id="@+id/catalogContainer" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:visibility="gone"/>
+    <androidx.core.widget.NestedScrollView android:id="@+id/authScroll" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <include android:id="@+id/choice" layout="@layout/auth_choice"/><include android:id="@+id/login" layout="@layout/auth_login" android:visibility="gone"/>
             <include android:id="@+id/account" layout="@layout/auth_account" android:visibility="gone"/><include android:id="@+id/person" layout="@layout/auth_person" android:visibility="gone"/>

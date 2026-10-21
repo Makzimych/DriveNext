@@ -17,7 +17,6 @@ class AndroidStartupRepository(context: Context) : StartupRepository {
             capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
     }
     override fun isOnboardingCompleted() = preferences.getBoolean("onboarding_completed", false)
-    // commit reports write failure, so the UI cannot silently lose the first-launch flag.
     override fun completeOnboarding() = preferences.edit().putBoolean("onboarding_completed", true).commit()
 
     override fun observeNetwork(onChanged: () -> Unit): () -> Unit {

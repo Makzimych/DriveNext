@@ -87,6 +87,15 @@ class AuthFragment : Fragment() {
         b.documents.documentsAvatar.setOnClickListener { choosePhoto("avatar") }; b.documents.documentsLicensePhoto.setOnClickListener { choosePhoto("license") }; b.documents.documentsPassportPhoto.setOnClickListener { choosePhoto("passport") }
         var renderedResetVersion = model.formResetVersion
         model.page.observe(viewLifecycleOwner) { page ->
+            val inset=if(page==AuthPage.HOME) 0 else (24*resources.displayMetrics.density).toInt()
+            b.root.setPadding(inset,inset,inset,inset)
+            b.catalogContainer.isVisible=page==AuthPage.HOME
+            b.authScroll.isVisible=page!=AuthPage.HOME
+            val catalog=childFragmentManager.findFragmentByTag("catalog")
+            if(!childFragmentManager.isStateSaved) {
+                if(page==AuthPage.HOME && catalog==null) childFragmentManager.beginTransaction().replace(R.id.catalogContainer,CatalogFragment(),"catalog").commitNow()
+                else if(page!=AuthPage.HOME && catalog!=null) childFragmentManager.beginTransaction().remove(catalog).commitNow()
+            }
             if (renderedResetVersion != model.formResetVersion) {
                 renderedResetVersion = model.formResetVersion
                 listOf(b.account.accountEmail,b.account.accountPassword,b.account.accountRepeat,b.person.personSurname,b.person.personName,b.person.personPatronymic,b.person.personBirthday,b.documents.documentsLicense,b.documents.documentsIssued).forEach { it.text?.clear() }
@@ -110,7 +119,12 @@ class AuthFragment : Fragment() {
         renderPhotos()
         consumeIntent(requireActivity().intent)
     }
-    fun back() = if (::model.isInitialized) model.back() else false
+    fun logoutFromCatalog() { model.logout(AuthPage.LOGIN) }
+    fun back(): Boolean {
+        if(!::model.isInitialized) return false
+        if(model.page.value==AuthPage.HOME && (childFragmentManager.findFragmentByTag("catalog") as? CatalogFragment)?.back()==true) return true
+        return model.back()
+    }
     fun consumeIntent(intent: Intent) {
         val uri=intent.data ?: return
         if (uri.scheme!="drivenext" || uri.host!="auth") return

@@ -89,7 +89,7 @@ class AuthViewModel(private val repository: AuthRepository) : ViewModel() {
             } else page.value = AuthPage.HOME
         }
     }
-    fun logout() = operation {
+    fun logout(target: AuthPage = AuthPage.CHOICE) = operation {
         repository.logout()
         draft.apply {
             email=""; password=""; repeat=""; agreed=false; surname=""; name=""; patronymic=""; birthday=""; gender=""; license=""; issued=""
@@ -97,7 +97,7 @@ class AuthViewModel(private val repository: AuthRepository) : ViewModel() {
         }
         loginEmail=""; loginPassword=""; accountCreated=false; confirmationPending=false
         formResetVersion++
-        page.value = AuthPage.CHOICE
+        page.value = target
     }
     private fun operation(block: suspend () -> Unit) {
         if (busy.value == true) return

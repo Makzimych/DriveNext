@@ -35,7 +35,6 @@ import javax.crypto.spec.GCMParameterSpec
 
 private object Yandex : OAuthProvider() { override val name = "custom:yandex" }
 
-// The refresh token is encrypted with a key that cannot be exported from Android Keystore.
 private class EncryptedSession(context: Context) : SessionManager {
     private val preferences = context.getSharedPreferences("auth_session", Context.MODE_PRIVATE)
     private fun key(): SecretKey {
@@ -64,7 +63,7 @@ private class EncryptedSession(context: Context) : SessionManager {
 
 class SupabaseAuthRepository(context: Context) : AuthRepository {
     private val appContext = context.applicationContext
-    private val client by lazy {
+    internal val client by lazy {
         check(BuildConfig.SUPABASE_URL.startsWith("https://") && BuildConfig.SUPABASE_KEY.isNotBlank()) { "backend_not_configured" }
         createSupabaseClient(BuildConfig.SUPABASE_URL, BuildConfig.SUPABASE_KEY) {
             install(Auth) { flowType = FlowType.PKCE; scheme = "drivenext"; host = "auth"; sessionManager = EncryptedSession(context.applicationContext) }
