@@ -1,0 +1,43 @@
+<!-- ЛР5. Тексты шагов подключения своего автомобиля. -->
+<resources>
+ <string name="landlord_intro_title">Стать арендодателем</string>
+ <string name="landlord_form_title">Добавление автомобиля</string>
+ <string name="landlord_photos_title">Добавление фотографий</string>
+ <string name="landlord_intro">Узнайте, что включает в себя становление арендодателем в приложении. Присоединяйтесь к тысячам владельцев, зарабатывающих в приложении.</string>
+ <string name="landlord_how_title">Как это работает</string>
+ <string name="landlord_how">Размещение бесплатно, вы можете устанавливать свои цены, доступность и условия. Получение и возврат автомобиля просты, а оплата производится быстро после каждой поездки.</string>
+ <string name="landlord_insurance_title">Политика страхования</string>
+ <string name="landlord_insurance">Доступны различные уровни защиты автомобиля на случай непредвиденных ситуаций.</string>
+ <string name="landlord_support_title">Мы поддержим вас</string>
+ <string name="landlord_support">От проверки арендаторов до поддержки клиентов — вы всегда можете делиться своим автомобилем с уверенностью.</string>
+ <string name="landlord_start">Начать</string>
+ <string name="landlord_address_label">Адрес местоположения автомобиля</string>
+ <string name="landlord_address_hint">Введите адрес</string>
+ <string name="landlord_year">Год выпуска</string>
+ <string name="landlord_year_hint">Год</string>
+ <string name="landlord_brand">Марка автомобиля</string>
+ <string name="landlord_brand_hint">Марка</string>
+ <string name="landlord_model">Модель</string>
+ <string name="landlord_transmission">Трансмиссия</string>
+ <string name="landlord_mileage">Пробег, км</string>
+ <string name="landlord_description">Добавьте описание</string>
+ <string name="landlord_description_hint">Пожалуйста, добавьте дополнительную информацию о вашем автомобиле, которая может быть интересна арендатору. Например, о внутреннем оформлении, мощности и других особенностях вашего автомобиля.</string>
+ <string name="landlord_submit">Отправить</string>
+ <string name="landlord_next">Далее</string>
+ <string name="landlord_photo_help">Добавьте от 1 до 5 фотографий автомобиля</string>
+ <string name="landlord_gallery">Выбрать из галереи</string>
+ <string name="landlord_camera">Сделать фото</string>
+ <string name="landlord_more_camera">Сделать ещё фотографию?</string>
+ <string name="landlord_photo_count">Добавлено: %1$d из 5</string>
+ <string name="landlord_remove_photo">Удалить фотографию %1$d</string>
+ <string name="landlord_photo_description">Фотография автомобиля %1$d</string>
+ <string name="landlord_success">Ваш автомобиль добавлен</string>
+ <string name="landlord_approved">Поздравляем! Ваш автомобиль одобрен</string>
+ <string name="landlord_home">На главную</string>
+ <string name="landlord_camera_unavailable">Не удалось открыть камеру. Выберите фото из галереи.</string>
+ <string name="landlord_gallery_unavailable">Не удалось открыть галерею. Попробуйте ещё раз.</string>
+ <string name="landlord_back">Назад</string>
+ <string name="landlord_year_error">Укажите корректный год выпуска</string>
+ <string name="landlord_mileage_error">Укажите пробег целым неотрицательным числом</string>
+ <string name="landlord_camera_finish">Завершить съёмку</string>
+</resources>

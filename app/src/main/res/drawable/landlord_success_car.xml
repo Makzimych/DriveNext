@@ -1,0 +1,13 @@
+<!-- ЛР5. Векторная иллюстрация автомобиля на экране успешного подключения. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="320dp" android:height="210dp" android:viewportWidth="320" android:viewportHeight="210">
+ <path android:fillColor="#EEE7F8" android:pathData="M25,180L295,180L295,183L25,183Z"/>
+ <path android:fillColor="#292B37" android:pathData="M76,133L106,133L106,178Q106,190 91,190Q76,190 76,178ZM225,133L253,133L253,177Q253,189 239,189Q225,189 225,177Z"/>
+ <path android:fillColor="#00C98D" android:pathData="M61,120L89,58Q94,43 112,43L225,43Q240,43 247,61L272,122L270,168Q270,178 258,178L73,178Q59,178 59,164Z"/>
+ <path android:fillColor="#D9F6F4" android:pathData="M99,63Q102,55 113,55L220,55Q229,55 233,65L248,107L81,107Z"/>
+ <path android:fillColor="#02AD7C" android:pathData="M61,120L271,120L270,153L62,153Z"/>
+ <path android:fillColor="#FFFFFF" android:pathData="M72,126L108,126L113,140L72,140ZM223,126L258,126L258,140L218,140ZM131,156L203,156L203,170L131,170Z"/>
+ <path android:fillColor="#2F343B" android:pathData="M124,128L210,128L204,142L130,142Z"/>
+ <path android:fillColor="#00A376" android:pathData="M48,103L71,103L71,118L48,118ZM259,103L282,103L282,118L259,118Z"/>
+ <path android:fillColor="#FFFFFF" android:pathData="M233,31a26,26 0,1 0,52 0a26,26 0,1 0,-52 0"/>
+ <path android:fillColor="#00A376" android:pathData="M239,31L247,23L255,31L270,14L278,21L255,47Z"/>
+</vector>

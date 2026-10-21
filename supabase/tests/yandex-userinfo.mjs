@@ -25,5 +25,5 @@ response=new Response('invalid',{status:401});
 assert.equal((await handler(request())).status,401);
 response=new Error('network');
 assert.equal((await handler(request())).status,502);
-console.log('Yandex adapter: 6 checks passed (mocked upstream).');
+console.log('Адаптер Яндекс ID: 6 проверок пройдены (запросы к сервису подменены в тесте).');
 

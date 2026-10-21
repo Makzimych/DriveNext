@@ -1,4 +1,4 @@
-// ЛР3–4. Каталог, поиск, настройки и профиль (ЛР3); подключение экранов аренды и избранного (ЛР4).
+// ЛР3–5. Каталог, поиск, настройки и профиль (ЛР3); подключение экранов аренды и избранного (ЛР4), подключение автомобиля (ЛР5).
 package com.example.drivenext.presentation
 
 import android.content.Context
@@ -110,10 +110,16 @@ class CatalogFragment : Fragment() {
             // ЛР4: подключение дочерних экранов бронирования и избранного.
             val rental=page in listOf(CatalogPage.FAVORITES,CatalogPage.BOOKINGS,CatalogPage.DETAILS,CatalogPage.RENT)
             b.rentalContainer.isVisible=rental
-            b.destinationPanel.isVisible=page==CatalogPage.ADD_CAR
-            b.catalogTitle.isVisible=!rental
-            b.catalogNavigation.isVisible=true
+            // ЛР5: отдельный мастер подключения своего автомобиля.
+            val landlord=page==CatalogPage.ADD_CAR
+            b.landlordContainer.isVisible=landlord
+            b.destinationPanel.isVisible=false
+            b.catalogTitle.isVisible=!rental && !landlord
+            b.catalogNavigation.isVisible=!landlord
             if(!childFragmentManager.isStateSaved) {
+                val ownerFlow=childFragmentManager.findFragmentById(R.id.landlordContainer)
+                if(landlord && ownerFlow==null) childFragmentManager.beginTransaction().replace(R.id.landlordContainer,LandlordFragment(),"landlord").commitNow()
+                else if(!landlord && ownerFlow!=null) childFragmentManager.beginTransaction().remove(ownerFlow).commitNow()
                 val old=childFragmentManager.findFragmentById(R.id.rentalContainer)
                 if(rental) {
                     val target=RentalPage.valueOf(page.name)
@@ -121,7 +127,7 @@ class CatalogFragment : Fragment() {
                     if(old?.tag!=tag) childFragmentManager.beginTransaction().replace(R.id.rentalContainer,RentalFragment.create(target,model.selected),tag).commitNow()
                 } else if(old!=null) childFragmentManager.beginTransaction().remove(old).commitNow()
             }
-            b.catalogBack.isVisible=!rental && page !in listOf(CatalogPage.HOME,CatalogPage.SETTINGS)
+            b.catalogBack.isVisible=!rental && !landlord && page !in listOf(CatalogPage.HOME,CatalogPage.SETTINGS)
             b.catalogTitle.text=when(page) {CatalogPage.FAVORITES->"Избранное";CatalogPage.HOME->"Главная";CatalogPage.SEARCH->"Результаты поиска";CatalogPage.SETTINGS->"Настройки";CatalogPage.PROFILE->"Профиль";CatalogPage.BOOKINGS->"Мои бронирования";CatalogPage.ADD_CAR->"Добавление автомобиля";CatalogPage.DETAILS->"Детали";CatalogPage.RENT->"Оформление аренды"}
             val car=model.selected
             b.destinationText.text=when(page) {CatalogPage.DETAILS->car?.let {"${it.brand} ${it.model}\n${it.description}\n${it.price} ₽ / сутки"}.orEmpty();CatalogPage.RENT->car?.let {"${it.brand} ${it.model}\n${it.price} ₽ / сутки\n"}.orEmpty();else->"Раздел в разработке."}
@@ -144,6 +150,8 @@ class CatalogFragment : Fragment() {
     }
     fun closeRental() {model.back()}
     fun back(): Boolean {
+        val landlord=childFragmentManager.findFragmentById(R.id.landlordContainer) as? LandlordFragment
+        if(landlord!=null && landlord.back()) return true
         val child=childFragmentManager.findFragmentById(R.id.rentalContainer) as? RentalFragment
         if(child!=null && child.back()) return true
         return if(::model.isInitialized) model.back() else false
