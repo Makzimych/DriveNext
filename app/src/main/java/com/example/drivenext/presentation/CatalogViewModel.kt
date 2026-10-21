@@ -1,8 +1,11 @@
+// ЛР3–4. Загрузка каталога, поиск и профиль (ЛР3); точки перехода к аренде и избранному (ЛР4).
 package com.example.drivenext.presentation
 
 import androidx.lifecycle.*
 import com.example.drivenext.domain.*
 import kotlinx.coroutines.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class CatalogViewModel(private val repository: CatalogRepository, private val saved: SavedStateHandle) : ViewModel() {
     val page = saved.getLiveData("catalog_page", CatalogPage.HOME.name)
@@ -14,7 +17,7 @@ class CatalogViewModel(private val repository: CatalogRepository, private val sa
     val error = MutableLiveData<String?>(null)
     val profileError = MutableLiveData<String?>(null)
     private var searchJob: Job? = null
-    var selected: Car? = null
+    var selected: Car? = saved.get<String>("selected_car")?.let {Json.decodeFromString<Car>(it)}
         private set
     init { load(false); refreshProfile() }
     fun navigate(target: CatalogPage) {
@@ -23,7 +26,7 @@ class CatalogViewModel(private val repository: CatalogRepository, private val sa
         if (target == CatalogPage.SETTINGS || target == CatalogPage.PROFILE) refreshProfile()
     }
     fun search(text: String) { query.value = text; saved["catalog_query"] = text; page.value = if(text.isBlank()) CatalogPage.HOME.name else CatalogPage.SEARCH.name; load(true) }
-    fun show(car: Car, rent: Boolean) { selected=car; page.value=if(rent) CatalogPage.RENT.name else CatalogPage.DETAILS.name }
+    fun show(car: Car, rent: Boolean) { selected=car; saved["selected_car"]=Json.encodeToString(car); page.value=if(rent) CatalogPage.RENT.name else CatalogPage.DETAILS.name }
     fun retry() = load(false)
     private fun load(debounce: Boolean) {
         searchJob?.cancel()
@@ -63,6 +66,7 @@ class CatalogViewModel(private val repository: CatalogRepository, private val sa
     fun back(): Boolean = when(page.value) {
         CatalogPage.PROFILE.name, CatalogPage.BOOKINGS.name, CatalogPage.ADD_CAR.name -> { navigate(CatalogPage.SETTINGS); true }
         CatalogPage.DETAILS.name, CatalogPage.RENT.name -> { page.value=if(query.value.isNullOrBlank()) CatalogPage.HOME.name else CatalogPage.SEARCH.name; true }
+        CatalogPage.FAVORITES.name -> { navigate(CatalogPage.HOME); true }
         CatalogPage.SEARCH.name -> { search(""); true }
         CatalogPage.SETTINGS.name -> { navigate(CatalogPage.HOME); true }
         else -> false

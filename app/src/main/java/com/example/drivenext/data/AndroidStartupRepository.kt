@@ -1,3 +1,4 @@
+// ЛР1. Проверка подключения и сохранение завершённого знакомства с приложением.
 package com.example.drivenext.data
 
 import android.content.Context

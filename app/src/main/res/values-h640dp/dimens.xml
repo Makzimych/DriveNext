@@ -1,3 +1,4 @@
+<!-- ЛР1–4. Общие ресурсы и настройки приложения. -->
 <resources>
     <dimen name="onboarding_art_height">300dp</dimen>
 </resources>

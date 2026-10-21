@@ -1,3 +1,4 @@
+<!-- ЛР1–4. Общие ресурсы и настройки приложения. -->
 <resources>
     <dimen name="screen_margin">24dp</dimen>
     <dimen name="button_height">52dp</dimen>

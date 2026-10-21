@@ -1,3 +1,4 @@
+// ЛР3–4. Каталог, поиск, настройки и профиль (ЛР3); подключение экранов аренды и избранного (ЛР4).
 package com.example.drivenext.presentation
 
 import android.content.Context
@@ -64,6 +65,7 @@ class CatalogFragment : Fragment() {
     }
     override fun onViewCreated(view:View,savedInstanceState:Bundle?) {
         val b=checkNotNull(bound)
+        // ЛР3: список автомобилей и поиск.
         val adapter=CarAdapter({model.show(it,false)},{model.show(it,true)})
         b.carsList.layoutManager=LinearLayoutManager(requireContext());b.carsList.adapter=adapter
         b.catalogSearch.setQuery(model.query.value,false)
@@ -72,16 +74,17 @@ class CatalogFragment : Fragment() {
             override fun onQueryTextChange(text:String?):Boolean {if(!syncingSearch) {requireContext().getSharedPreferences("catalog",Context.MODE_PRIVATE).edit().putString("query",text.orEmpty()).apply();model.search(text.orEmpty())};return true}
         })
         b.catalogNavigation.setOnItemSelectedListener { item ->
-            val target=when(item.itemId) {R.id.tabHome->CatalogPage.HOME;R.id.tabBookings->CatalogPage.BOOKINGS;else->CatalogPage.SETTINGS}
+            val target=when(item.itemId) {R.id.tabHome->CatalogPage.HOME;R.id.tabBookings->CatalogPage.FAVORITES;else->CatalogPage.SETTINGS}
             if(model.page.value!=target.name) {
                 if(target==CatalogPage.HOME) {requireContext().getSharedPreferences("catalog",Context.MODE_PRIVATE).edit().putString("query", "").apply();model.search("")}
                 else model.navigate(target)
             }
             true
         }
-        b.catalogBack.setOnClickListener {model.back()}
+        b.catalogBack.setOnClickListener {back()}
         b.catalogRetry.setOnClickListener {model.retry()}
         b.profileRetry.setOnClickListener {model.refreshProfile()}
+        // ЛР3: настройки, профиль и смена фотографии.
         b.profileCard.setOnClickListener {model.navigate(CatalogPage.PROFILE)}
         b.settingsBookings.setOnClickListener {model.navigate(CatalogPage.BOOKINGS)}
         b.settingsAddCar.setOnClickListener {model.navigate(CatalogPage.ADD_CAR)}
@@ -104,12 +107,25 @@ class CatalogFragment : Fragment() {
             val page=CatalogPage.valueOf(value)
             val list=page==CatalogPage.HOME || page==CatalogPage.SEARCH
             b.catalogList.isVisible=list;b.settingsPanel.isVisible=page==CatalogPage.SETTINGS;b.profilePanel.isVisible=page==CatalogPage.PROFILE
-            b.destinationPanel.isVisible=page in listOf(CatalogPage.BOOKINGS,CatalogPage.ADD_CAR,CatalogPage.DETAILS,CatalogPage.RENT)
-            b.catalogBack.isVisible=page !in listOf(CatalogPage.HOME,CatalogPage.SETTINGS)
-            b.catalogTitle.text=when(page) {CatalogPage.HOME->"Главная";CatalogPage.SEARCH->"Результаты поиска";CatalogPage.SETTINGS->"Настройки";CatalogPage.PROFILE->"Профиль";CatalogPage.BOOKINGS->"Мои бронирования";CatalogPage.ADD_CAR->"Добавление автомобиля";CatalogPage.DETAILS->"Детали";CatalogPage.RENT->"Оформление аренды"}
+            // ЛР4: подключение дочерних экранов бронирования и избранного.
+            val rental=page in listOf(CatalogPage.FAVORITES,CatalogPage.BOOKINGS,CatalogPage.DETAILS,CatalogPage.RENT)
+            b.rentalContainer.isVisible=rental
+            b.destinationPanel.isVisible=page==CatalogPage.ADD_CAR
+            b.catalogTitle.isVisible=!rental
+            b.catalogNavigation.isVisible=true
+            if(!childFragmentManager.isStateSaved) {
+                val old=childFragmentManager.findFragmentById(R.id.rentalContainer)
+                if(rental) {
+                    val target=RentalPage.valueOf(page.name)
+                    val tag="rental_${page.name}_${model.selected?.id}"
+                    if(old?.tag!=tag) childFragmentManager.beginTransaction().replace(R.id.rentalContainer,RentalFragment.create(target,model.selected),tag).commitNow()
+                } else if(old!=null) childFragmentManager.beginTransaction().remove(old).commitNow()
+            }
+            b.catalogBack.isVisible=!rental && page !in listOf(CatalogPage.HOME,CatalogPage.SETTINGS)
+            b.catalogTitle.text=when(page) {CatalogPage.FAVORITES->"Избранное";CatalogPage.HOME->"Главная";CatalogPage.SEARCH->"Результаты поиска";CatalogPage.SETTINGS->"Настройки";CatalogPage.PROFILE->"Профиль";CatalogPage.BOOKINGS->"Мои бронирования";CatalogPage.ADD_CAR->"Добавление автомобиля";CatalogPage.DETAILS->"Детали";CatalogPage.RENT->"Оформление аренды"}
             val car=model.selected
             b.destinationText.text=when(page) {CatalogPage.DETAILS->car?.let {"${it.brand} ${it.model}\n${it.description}\n${it.price} ₽ / сутки"}.orEmpty();CatalogPage.RENT->car?.let {"${it.brand} ${it.model}\n${it.price} ₽ / сутки\n"}.orEmpty();else->"Раздел в разработке."}
-            val tab=when(page) {CatalogPage.BOOKINGS->R.id.tabBookings;CatalogPage.SETTINGS,CatalogPage.PROFILE,CatalogPage.ADD_CAR->R.id.tabSettings;else->R.id.tabHome}
+            val tab=when(page) {CatalogPage.FAVORITES->R.id.tabBookings;CatalogPage.SETTINGS,CatalogPage.PROFILE,CatalogPage.ADD_CAR->R.id.tabSettings;else->R.id.tabHome}
             b.catalogNavigation.menu.findItem(tab).isChecked=true
             if(page==CatalogPage.HOME && b.catalogSearch.query.isNotEmpty()) {syncingSearch=true;b.catalogSearch.setQuery("",false);syncingSearch=false}
             if(page==CatalogPage.SEARCH && b.catalogSearch.query.toString()!=model.query.value) {syncingSearch=true;b.catalogSearch.setQuery(model.query.value,false);syncingSearch=false}
@@ -121,6 +137,16 @@ class CatalogFragment : Fragment() {
         b.catalogProgress.isVisible=loading;b.catalogError.text=error;b.catalogError.isVisible=error!=null;b.catalogRetry.isVisible=error!=null && !loading
         b.carsList.isVisible=!loading && error==null;b.catalogEmpty.isVisible=!loading && error==null && model.cars.value.isNullOrEmpty()
     }
-    fun back()=if(::model.isInitialized) model.back() else false
+    fun rentalNavigation(visible: Boolean) {bound?.catalogNavigation?.isVisible=visible}
+    fun rentalHome() {
+        requireContext().getSharedPreferences("catalog",Context.MODE_PRIVATE).edit().putString("query", "").apply()
+        model.search("")
+    }
+    fun closeRental() {model.back()}
+    fun back(): Boolean {
+        val child=childFragmentManager.findFragmentById(R.id.rentalContainer) as? RentalFragment
+        if(child!=null && child.back()) return true
+        return if(::model.isInitialized) model.back() else false
+    }
     override fun onDestroyView(){bound=null;super.onDestroyView()}
 }

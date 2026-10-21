@@ -1,3 +1,4 @@
+// ЛР2. Проверки полей регистрации.
 package com.example.drivenext.domain
 import org.junit.Assert.*
 import org.junit.Test

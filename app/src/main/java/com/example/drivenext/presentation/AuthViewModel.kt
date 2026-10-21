@@ -1,3 +1,4 @@
+// ЛР2–3. Состояние регистрации и входа (ЛР2), выход из профиля в форму входа (ЛР3).
 package com.example.drivenext.presentation
 
 import androidx.lifecycle.MutableLiveData

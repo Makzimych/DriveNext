@@ -1,3 +1,4 @@
+// ЛР1–2. Состояние загрузки и вводных экранов; переход к авторизации или каталогу с учётом сессии.
 package com.example.drivenext.presentation
 
 import android.os.Handler

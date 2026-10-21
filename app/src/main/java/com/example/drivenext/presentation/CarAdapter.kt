@@ -1,3 +1,4 @@
+// ЛР3–4. Карточки автомобилей в каталоге и поиске (ЛР3), повторное использование в избранном (ЛР4).
 package com.example.drivenext.presentation
 
 import android.view.LayoutInflater

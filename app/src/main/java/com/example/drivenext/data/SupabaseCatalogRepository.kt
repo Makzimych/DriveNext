@@ -1,3 +1,4 @@
+// ЛР3–4. Серверный каталог, поиск и аватар (ЛР3); адрес, тарифы аренды и данные водителя (ЛР4).
 package com.example.drivenext.data
 
 import com.example.drivenext.domain.*
@@ -13,7 +14,7 @@ class SupabaseCatalogRepository(private val auth: SupabaseAuthRepository) : Cata
     private val client get() = auth.client
     override suspend fun cars(query: String): List<Car> {
         val text = query.trim().replace(Regex("[^\\p{L}\\p{N} -]"), "").take(100)
-        return client.from("cars").select(columns = Columns.list("id", "brand", "model", "price", "transmission", "fuel", "seats", "year", "description")) {
+        return client.from("cars").select(columns = Columns.list("id", "brand", "model", "price", "transmission", "fuel", "seats", "year", "description", "address", "insurancePerDay:insurance_per_day", "deposit")) {
             if (text.isNotBlank()) filter { ilike("search_text", "%$text%") }
         }.decodeList<Car>().sortedWith(compareBy({ it.brand }, { it.model }))
     }
@@ -22,12 +23,12 @@ class SupabaseCatalogRepository(private val auth: SupabaseAuthRepository) : Cata
         val rows = client.from("profiles").select { filter { eq("id", user.id) } }.decodeList<JsonObject>()
         val row = rows.firstOrNull()
         fun JsonObject?.text(key: String) = this?.get(key)?.jsonPrimitive?.contentOrNull.orEmpty()
-        val name = listOf(row.text("name"), row.text("surname")).filter { it.isNotBlank() }.joinToString(" ")
+        val name = listOf(row.text("name"), row.text("surname"), row.text("patronymic")).filter { it.isNotBlank() }.joinToString(" ")
             .ifBlank { user.userMetadata.text("name").ifBlank { user.userMetadata.text("full_name").ifBlank { "Пользователь" } } }
         val photo = try { client.storage.from("identity-documents").downloadAuthenticated("${user.id}/avatar.jpg") }
             catch (e: kotlinx.coroutines.CancellationException) { throw e }
             catch (_: Exception) { null }
-        return UserProfile(name, user.email.orEmpty(), photo)
+        return UserProfile(name, user.email.orEmpty(), photo, row.text("license_number"))
     }
     override suspend fun avatar(bytes: ByteArray) = withContext(Dispatchers.IO) {
         val uid = checkNotNull(client.auth.currentUserOrNull()?.id)

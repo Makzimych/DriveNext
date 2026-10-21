@@ -1,0 +1,47 @@
+<!-- ЛР4. Ресурсы аренды, бронирований и избранного. -->
+<resources>
+  <string name="lr4_back">Назад</string>
+  <string name="lr4_details">Детали</string>
+  <string name="lr4_rent">Оформление аренды</string>
+  <string name="lr4_success">Удачной поездки</string>
+  <string name="lr4_bookings">Мои бронирования</string>
+  <string name="lr4_booking">Бронирование № %1$06d</string>
+  <string name="lr4_favorites">Избранное</string>
+  <string name="lr4_favorite_add">Добавить в избранное</string>
+  <string name="lr4_favorite_remove">Удалить из избранного</string>
+  <string name="lr4_reserve">Забронировать</string>
+  <string name="lr4_description">Описание</string>
+  <string name="lr4_address">Адрес нахождения</string>
+  <string name="lr4_start">Начало аренды: %1$s</string>
+  <string name="lr4_end">Конец аренды: %1$s</string>
+  <string name="lr4_cost_rent">Аренда автомобиля × %1$d сут.: %2$d ₽</string>
+  <string name="lr4_cost_insurance">Страховка × %1$d сут.: %2$d ₽</string>
+  <string name="lr4_cost_total">Итого: %1$d ₽</string>
+  <string name="lr4_cost_deposit">Возвращаемый депозит: %1$d ₽</string>
+  <string name="lr4_continue">Продолжить</string>
+  <string name="lr4_date_error">Выберите начало аренды в будущем и окончание позже начала. Неполные сутки считаются полными.</string>
+  <string name="lr4_success_message">Бронирование успешно создано</string>
+  <string name="lr4_to_bookings">Перейти к своим бронированиям</string>
+  <string name="lr4_home">Домой</string>
+  <string name="lr4_empty_bookings">У вас пока нет бронирований</string>
+  <string name="lr4_empty_favorites">В избранном пока нет автомобилей. Добавьте автомобиль с помощью сердца на экране деталей.</string>
+  <string name="lr4_retry">Повторить попытку</string>
+  <string name="lr4_cancel">Отменить бронирование</string>
+  <string name="lr4_driver">ФИО водителя: %1$s</string>
+  <string name="lr4_license">Номер ВУ: %1$s</string>
+  <string name="lr4_not_provided">Не указан</string>
+  <string name="lr4_status">Статус аренды: %1$s</string>
+  <string name="lr4_approved">Одобрено</string>
+  <string name="lr4_completed">Завершено</string>
+  <string name="lr4_cancelled">Отменено</string>
+  <string name="lr4_list_start">Начало аренды: %1$s</string>
+  <string name="lr4_list_end">Аренда завершена: %1$s</string>
+  <string name="lr4_list_cancelled">Отменено · %1$s</string>
+  <string name="lr4_day_price">%1$d ₽ / сутки</string>
+  <string name="lr4_car_title">%1$s %2$s · %3$d</string>
+  <string name="lr4_car_specs">%1$s · %2$s · %3$d мест</string>
+  <string name="lr4_cancel_question">Отменить это бронирование?</string>
+  <string name="lr4_no">Нет</string>
+  <string name="lr4_yes_cancel">Отменить</string>
+  <string name="lr4_check">✓</string>
+</resources>

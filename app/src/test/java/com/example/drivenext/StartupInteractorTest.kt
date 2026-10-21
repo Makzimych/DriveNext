@@ -1,3 +1,4 @@
+// ЛР1–2. Проверки стартового маршрута, вводных экранов и учёта сессии.
 package com.example.drivenext
 
 import com.example.drivenext.domain.*

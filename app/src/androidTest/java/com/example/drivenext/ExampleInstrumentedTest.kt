@@ -1,3 +1,4 @@
+// Общий файл проекта. Шаблон проверки пакета приложения на устройстве; не относится к отдельной лабораторной.
 package com.example.drivenext
 
 import androidx.test.platform.app.InstrumentationRegistry
@@ -9,15 +10,15 @@ import org.junit.runner.RunWith
 import org.junit.Assert.*
 
 /**
- * Instrumented test, which will execute on an Android device.
+ * Инструментальная проверка, выполняемая на устройстве Android.
  *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * См. [документацию по проверкам](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
-        // Context of the app under test.
+        // Контекст проверяемого приложения.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.drivenext", appContext.packageName)
     }

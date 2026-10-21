@@ -1,3 +1,4 @@
+<!-- ЛР2. Ресурсы авторизации и регистрации. -->
 <resources>
   <string name="auth_choice_slogan">Поможем найти твою следующую поездку</string>
   <string name="auth_login">Войти</string>

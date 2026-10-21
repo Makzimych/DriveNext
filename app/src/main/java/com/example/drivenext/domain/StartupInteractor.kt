@@ -1,3 +1,4 @@
+// ЛР1–2. Выбор стартового экрана; в ЛР2 учитывается сохранённая сессия пользователя.
 package com.example.drivenext.domain
 
 enum class Destination { ONBOARDING, AUTH, HOME }

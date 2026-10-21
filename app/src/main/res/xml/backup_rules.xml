@@ -1,1 +1,2 @@
+<!-- ЛР1–4. Общие ресурсы и настройки приложения. -->
 <full-backup-content><exclude domain="sharedpref" path="auth_session.xml"/><exclude domain="file" path="auth-draft/"/></full-backup-content>

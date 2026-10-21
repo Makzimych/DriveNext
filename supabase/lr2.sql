@@ -1,4 +1,5 @@
--- Run once in Supabase SQL Editor. Contains no credentials.
+-- ЛР2. Таблица профилей, закрытое хранилище документов и правила доступа.
+-- Выполнить один раз в редакторе SQL Supabase. Данных для входа здесь нет.
 create table if not exists public.profiles (
     id uuid primary key references auth.users(id) on delete cascade,
     surname text not null,

@@ -1,5 +1,6 @@
-// Supabase custom OAuth expects standard claims; Yandex returns default_email.
-// No service-role key is used here. The Yandex access token is checked by Yandex.
+// ЛР2. Преобразование ответа Яндекс ID в поля пользователя для Supabase.
+// Supabase ожидает стандартные поля пользователя; Яндекс возвращает почту в default_email.
+// Секретный ключ service_role не используется. Токен доступа проверяется запросом к Яндексу.
 Deno.serve(async (request: Request) => {
   if (request.method !== "GET") return new Response("Method not allowed", { status: 405 });
   const header = request.headers.get("authorization") ?? "";

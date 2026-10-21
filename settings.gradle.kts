@@ -1,3 +1,4 @@
+// ЛР1–4. Подключение модулей и репозиториев зависимостей.
 pluginManagement {
     repositories {
         google {

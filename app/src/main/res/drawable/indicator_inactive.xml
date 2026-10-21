@@ -1,1 +1,2 @@
+<!-- ЛР1. Вводные экраны, загрузка и обработка отсутствия подключения. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"><solid android:color="@color/indicator_inactive" /><corners android:radius="3dp" /></shape>

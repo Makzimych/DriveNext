@@ -1,3 +1,4 @@
+// ЛР2. Модели регистрации, контракт авторизации и проверка введённых данных.
 package com.example.drivenext.domain
 
 import java.time.LocalDate

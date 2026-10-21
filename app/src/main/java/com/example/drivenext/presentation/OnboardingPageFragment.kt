@@ -1,3 +1,4 @@
+// ЛР1. Вводные страницы знакомства с приложением и их адаптер.
 package com.example.drivenext.presentation
 
 import android.os.Bundle

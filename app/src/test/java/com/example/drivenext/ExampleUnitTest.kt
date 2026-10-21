@@ -1,3 +1,4 @@
+// Общий файл проекта. Шаблон модульной проверки; не относится к заданию отдельной лабораторной.
 package com.example.drivenext
 
 import org.junit.Test
@@ -5,9 +6,9 @@ import org.junit.Test
 import org.junit.Assert.*
 
 /**
- * Example local unit test, which will execute on the development machine (host).
+ * Пример локальной модульной проверки, выполняемой на компьютере разработчика.
  *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * См. [документацию по проверкам](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
     @Test

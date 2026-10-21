@@ -1,3 +1,4 @@
+// ЛР2. Вход по почте и Яндекс ID, регистрация, загрузка документов и сохранение сессии.
 package com.example.drivenext.data
 
 import android.content.Context

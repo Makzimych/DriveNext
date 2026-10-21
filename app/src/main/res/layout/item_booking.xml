@@ -1,0 +1,5 @@
+<!-- ЛР4. Ресурсы аренды, бронирований и избранного. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp" android:minHeight="76dp" android:background="?attr/selectableItemBackground" android:clickable="true" android:focusable="true">
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/bookingRowName" android:text="" android:textSize="18sp" android:textColor="@color/text_primary" android:padding="8dp" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/bookingRowDate" android:text="" android:textSize="13sp" android:textColor="@color/text_primary" android:padding="8dp" />
+</LinearLayout>

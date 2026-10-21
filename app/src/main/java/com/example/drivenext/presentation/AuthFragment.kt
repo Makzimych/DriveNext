@@ -1,3 +1,4 @@
+// ЛР2–4. Формы авторизации и регистрации (ЛР2); контейнер каталога и экранов ЛР3–4.
 package com.example.drivenext.presentation
 
 import android.app.Activity
@@ -89,6 +90,7 @@ class AuthFragment : Fragment() {
         model.page.observe(viewLifecycleOwner) { page ->
             val inset=if(page==AuthPage.HOME) 0 else (24*resources.displayMetrics.density).toInt()
             b.root.setPadding(inset,inset,inset,inset)
+            // ЛР3–4: после входа показываем каталог и вложенные экраны.
             b.catalogContainer.isVisible=page==AuthPage.HOME
             b.authScroll.isVisible=page!=AuthPage.HOME
             val catalog=childFragmentManager.findFragmentByTag("catalog")

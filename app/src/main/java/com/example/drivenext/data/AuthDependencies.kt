@@ -1,3 +1,4 @@
+// ЛР2–4. Общий экземпляр репозитория авторизации для входа и доступа к данным текущего пользователя.
 package com.example.drivenext.data
 
 import android.content.Context

@@ -1,3 +1,4 @@
+<!-- ЛР1–4. Общие ресурсы и настройки приложения. -->
 <resources>
     <style name="Base.Theme.DriveNext" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/brand</item>

@@ -1,3 +1,4 @@
+// ЛР2. Проверки функции авторизации через Яндекс ID.
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';

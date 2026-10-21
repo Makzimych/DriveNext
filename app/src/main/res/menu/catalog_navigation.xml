@@ -1,5 +1,6 @@
+<!-- ЛР3–4. Каталог, поиск, настройки и общие карточки автомобилей; аренда и избранное. -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/tabHome" android:icon="@drawable/catalog_home" android:title="@string/lr3_tabhome_text"/>
-<item android:id="@+id/tabBookings" android:icon="@drawable/catalog_bookmark" android:title="@string/lr3_tabbookings_text"/>
+<item android:id="@+id/tabBookings" android:icon="@drawable/catalog_bookmark" android:title="@string/lr4_favorites"/>
 <item android:id="@+id/tabSettings" android:icon="@drawable/catalog_settings" android:title="@string/lr3_tabsettings_text"/>
 </menu>

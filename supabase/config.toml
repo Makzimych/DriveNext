@@ -1,3 +1,4 @@
+# ЛР2. Настройка функции проверки токена Яндекс ID.
 [functions.yandex-userinfo]
-# Incoming bearer is a Yandex token, not a Supabase JWT.
+# В заголовке авторизации передаётся токен Яндекса; его проверяет функция у Яндекса.
 verify_jwt = false

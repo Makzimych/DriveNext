@@ -1,4 +1,5 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// ЛР1–4. Общая конфигурация сборки проекта.
+// Общие настройки сборки всех модулей проекта.
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false

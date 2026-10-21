@@ -1,3 +1,4 @@
+-- ЛР3. Серверный каталог учебных автомобилей и доступ для вошедших пользователей.
 -- Учебный каталог ЛР3. Запрос допускает повторное выполнение.
 create table if not exists public.cars (
  id text primary key, brand text not null, model text not null,

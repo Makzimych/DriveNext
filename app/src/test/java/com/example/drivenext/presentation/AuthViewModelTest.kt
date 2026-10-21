@@ -1,3 +1,4 @@
+// ЛР2. Проверки состояния и переходов авторизации.
 package com.example.drivenext.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule

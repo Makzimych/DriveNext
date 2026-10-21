@@ -1,1 +1,2 @@
+<!-- ЛР1–4. Общие ресурсы и настройки приложения. -->
 <data-extraction-rules><cloud-backup><exclude domain="sharedpref" path="auth_session.xml"/><exclude domain="file" path="auth-draft/"/></cloud-backup><device-transfer><exclude domain="sharedpref" path="auth_session.xml"/><exclude domain="file" path="auth-draft/"/></device-transfer></data-extraction-rules>

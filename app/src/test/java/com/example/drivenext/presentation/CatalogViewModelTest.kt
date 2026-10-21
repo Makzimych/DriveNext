@@ -1,3 +1,4 @@
+// ЛР3. Проверки поиска, повторной загрузки и возврата из профиля.
 package com.example.drivenext.presentation
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
